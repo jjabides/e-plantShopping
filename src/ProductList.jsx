@@ -253,6 +253,9 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
         setShowCart(false); // Hide the cart when navigating to About Us
+
+        // reset added to cart state
+        resetCartState()
     };
 
     const handleContinueShopping = (e) => {
@@ -260,6 +263,10 @@ function ProductList({ onHomeClick }) {
         setShowCart(false);
 
         // reset added to cart state
+        resetCartState()
+    };
+
+    const resetCartState = () => {
         setAddedToCart(prevState => {
             let newState = {}
             cartItems.items.forEach(item => {
@@ -267,7 +274,8 @@ function ProductList({ onHomeClick }) {
             })
             return newState
         })
-    };
+    }
+
     const handleAddToCart = (product) => {
         dispatch(addItem(product)); // Dispatch the action to add the product to the cart (Redux action)
 
