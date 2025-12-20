@@ -46,10 +46,6 @@ const CartItem = ({ onContinueShopping }) => {
         alert('Functionality to be added for future reference');
     };
 
-    const calculateTotalQuantity = () => {
-        return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
-    };
-
     return (
         <div className="cart-container">
             <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
@@ -71,7 +67,7 @@ const CartItem = ({ onContinueShopping }) => {
                     </div>
                 ))}
             </div>
-            <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'>{calculateTotalQuantity()}</div>
+            <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'>${calculateTotalAmount()}</div>
             <div className="continue_shopping_btn">
                 <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
                 <br />
